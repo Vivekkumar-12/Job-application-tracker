@@ -32,7 +32,11 @@ export default function Profile() {
   }, []);
 
   if (!token) {
-    return <div style={{marginTop: 40, fontSize: '1.2rem'}}>Please <b>log in</b> to view your profile.</div>;
+    return (
+      <div className="page-message">
+        Please <b>log in</b> to view your profile.
+      </div>
+    );
   }
 
   const handleEdit = async (e) => {
@@ -92,10 +96,10 @@ export default function Profile() {
   };
 
   return (
-    <div>
+    <div className="page-profile card">
       <h2>Profile</h2>
       {user && (
-        <div style={{display: 'flex', alignItems: 'flex-start', gap: 32, marginBottom: 32}}>
+        <div style={{display: 'flex', alignItems: 'flex-start', gap: 24, marginBottom: 16}}>
           {/* Profile Photo */}
           <div>
             <img

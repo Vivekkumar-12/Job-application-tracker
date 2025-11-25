@@ -100,7 +100,11 @@ export default function Home() {
   };
 
   if (!token) {
-    return <div style={{marginTop: 40, fontSize: '1.2rem'}}>Please <b>log in</b> to use the job tracker.</div>;
+    return (
+      <div className="page-message">
+        Please <b>log in</b> to use the job tracker.
+      </div>
+    );
   }
 
   // Enhanced search logic for jobs and companies (use searchQuery, not search)
@@ -128,14 +132,14 @@ export default function Home() {
   return (
     <div>
       {/* Search bar */}
-      <div style={{display: 'flex', alignItems: 'center', gap: 12, marginBottom: 32}}>
+      <div className="home-search-row">
         <input
           style={{flex: 1, fontSize: '1.1rem', padding: '10px 14px'}}
           placeholder="Search Jobs"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
         />
-        <button style={{padding: '10px 18px', fontSize: '1.1rem'}} onClick={handleSearch}>
+        <button onClick={handleSearch}>
           Search
         </button>
         <select
@@ -159,22 +163,15 @@ export default function Home() {
       </div>
 
       {/* Tabs as large buttons */}
-      <div style={{display: 'flex', gap: 32, justifyContent: 'center', marginBottom: 36}}>
+      <div className="home-tabs">
         {TABS.map((t) => (
           <button
             key={t}
-            style={{
-              minWidth: 140,
-              minHeight: 60,
-              fontSize: '1.2rem',
-              border: '2px solid #1976d2',
-              borderRadius: 10,
-              background: tab === t ? '#1976d2' : '#fff',
-              color: tab === t ? '#fff' : '#1976d2',
-              fontWeight: 600,
-              cursor: 'pointer',
-              transition: 'background 0.2s, color 0.2s',
-            }}
+            className={
+              tab === t
+                ? "home-tab-button home-tab-button--active"
+                : "home-tab-button"
+            }
             onClick={() => setTab(t)}
           >
             {t}

@@ -18,11 +18,11 @@ export default function Signup() {
   };
 
   return (
-    <div>
-      <h2>Signup</h2>
+    <div className="page-auth card">
+      <h2>Create account</h2>
       <input
         type="email"
-        placeholder="Email"
+        placeholder="Work email"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
       />
@@ -32,7 +32,7 @@ export default function Signup() {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       />
-      <button onClick={handleSignup}>Signup</button>
+      <button onClick={handleSignup}>Sign up</button>
     </div>
   );
 }
